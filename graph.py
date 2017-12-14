@@ -11,7 +11,7 @@ class Graph():
     def add_edge(self, u, v):
         self.graph[u].append(v)
     #internal
-    def is_cyclic_util(self, v, visits_p,n):
+    def _is_cyclic_util(self, v, visits_p,n):
         visits=list(visits_p)
         visits[v] +=1
         bads=[]
@@ -22,7 +22,7 @@ class Graph():
             return [[v]]
             bads.append(v)
         for neighbor in self.graph[v]:
-            cyclic_data=self.is_cyclic_util(neighbor, visits,n)
+            cyclic_data=self._is_cyclic_util(neighbor, visits,n)
             if len(cyclic_data)>0:
                 for bad in cyclic_data:
                     if(v in bad):
@@ -48,7 +48,7 @@ class Graph():
         for node in range(self.V):
             if visits[node]<1:
                 rec= [0] * self.V
-                c_datas=self.is_cyclic_util(node, rec,node)
+                c_datas=self._is_cyclic_util(node, rec,node)
                 for c_data in c_datas:
                     if(len(c_data)>0):
                         c_data=self.normalize_cycle(c_data)
