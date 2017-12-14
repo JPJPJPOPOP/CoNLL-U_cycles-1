@@ -5,11 +5,12 @@ from parser import parse
 from graph import Graph
 
 if len(sys.argv) != 2:
-    raise Exception('Invalid Input, must be given a file which is in the conllu format')
+    raise Exception(
+        'Invalid Input, must be given a file which is in the conllu format')
 
 data = parse(open(sys.argv[1], 'r').read())
 print(data)
-g = Graph(len(data[0])+1)
+g = Graph(len(data[0]) + 1)
 # head_to_tail = {}
 for word in data[0]:
     print(word['head'], " ", word['id'])
