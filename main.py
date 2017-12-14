@@ -5,8 +5,8 @@ from parser import parse
 from graph import Graph
 
 if len(sys.argv) != 2:
-    raise Exception(
-        'Invalid Input, must be given a file which is in the conllu format')
+    raise ValueError(
+        'Invalid Input, must be given a file which is in the CoNLL-U format')
 
 data = parse(open(sys.argv[1], 'r').read())
 print(data)

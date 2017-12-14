@@ -12,4 +12,4 @@ A dependency cycle occurs when node N depends on the value of node N, either ind
 python3 main.py file.txt
 ```
 
-This will parse a file.txt in the conllu format, and list cycles.
+This will parse a file.txt in the CoNLL-U format, and list cycles.
