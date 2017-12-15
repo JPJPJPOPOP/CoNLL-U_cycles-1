@@ -11,8 +11,6 @@ def parse(text):
         row = str(l).split(" ")
         while("" in row):
             row.remove("")
-        word = dict()
-        word["id"] = int(row[0])
-        word["head"] = int(row[6])
+        word = {"id":int(row[0]),"head":int(row[6])}
         words.append(word)
     return [words]
