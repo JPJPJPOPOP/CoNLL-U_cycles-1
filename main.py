@@ -9,8 +9,8 @@ if len(sys.argv) != 2:
         'Invalid Input, must be given a file which is in the CoNLL-U format')
 
 data = parse(open(sys.argv[1], 'r').read())
-g = Graph(len(data[0]) + 1)
-for word in data[0]:
+g = Graph(len(data) + 1)
+for word in data:
     g.add_edge(word['id'], word['head'])
 
 print("Has Cycles:")

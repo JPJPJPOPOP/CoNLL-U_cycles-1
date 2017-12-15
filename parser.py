@@ -13,4 +13,4 @@ def parse(text):
             row.remove("")
         word = {"id":int(row[0]),"head":int(row[6])}
         words.append(word)
-    return [words]
+    return words
