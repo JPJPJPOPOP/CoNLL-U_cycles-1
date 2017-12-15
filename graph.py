@@ -29,7 +29,8 @@ class Graph():
                 if(not(b in bads)):
                     bads.append(b)
         return bads
-
+    
+    #rotates cycle so it starts with smallest id
     def normalize_cycle(self, a):
         b = list(a)
         b.sort()
@@ -38,8 +39,8 @@ class Graph():
         for x in range(0, len(a)):
             g[x - loc] = a[x]
         return g
-    # returns existing cycles in the form of lists of node ids which are in a cycle
 
+    # returns existing cycles in the form of lists of node ids which are in a cycle
     def cycle_list(self):
         cycles = []
         for node in range(self.V):
@@ -52,7 +53,7 @@ class Graph():
                         cycles.append(c_data)
 
         return cycles
-    # checks if graph has cycles
 
+    # checks if graph has cycles
     def is_cyclic(self):
         return len(self.cycle_list()) > 0
