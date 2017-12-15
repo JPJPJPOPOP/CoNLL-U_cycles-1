@@ -12,9 +12,7 @@ def parse(text):
         while("" in row):
             row.remove("")
         word = dict()
-        word["head"] = int(row[0])
-        word["id"] = int(row[6])
-        word["token"] = row[1]
-        word["normalized"] = row[2]
+        word["id"] = int(row[0])
+        word["head"] = int(row[6])
         words.append(word)
     return [words]
