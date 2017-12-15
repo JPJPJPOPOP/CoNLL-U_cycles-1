@@ -12,23 +12,15 @@ class Graph():
         self.graph[u].append(v)
 
     # internal
-    def _is_cyclic_util(self, current_vertex, visits_p, start_vertex):
-        visits = list(visits_p)
-        visits[current_vertex] += 1
-        bads = []
-        if visits[current_vertex] > 1:
-            if current_vertex == start_vertex:
-                return [[current_vertex]]
-            return []
-        for neighbor in self.graph[current_vertex]:
-            cyclic_data = self._is_cyclic_util(neighbor, visits, start_vertex)
-            for bad in cyclic_data:
-                if current_vertex in bad:
-                    bad.remove(current_vertex)
-                b = [current_vertex] + bad
-                if not(b in bads):
-                    bads.append(b)
-        return bads
+    def _is_cyclic_util(self, start_vertex):
+        current_vertex=start_vertex+0
+        visited=[current_vertex]
+        while len(self.graph[current_vertex])>0 and not(self.graph[current_vertex][0]==start_vertex):
+            current_vertex=self.graph[current_vertex][0]
+            visited.append(current_vertex+0)
+        if len(self.graph[current_vertex])>0:
+            return [visited]
+        return []
 
     # rotates cycle so it starts with smallest id
     def normalize_cycle(self, a):
@@ -44,8 +36,7 @@ class Graph():
     def cycle_list(self):
         cycles = []
         for node in range(self.verticies):
-            rec = [0] * self.verticies
-            c_datas = self._is_cyclic_util(node, rec, node)
+            c_datas = self._is_cyclic_util(node)
             for c_data in c_datas:
                 if len(c_data) > 0:
                     c_data = self.normalize_cycle(c_data)

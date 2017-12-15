@@ -11,6 +11,6 @@ def parse(text):
         row = str(l).split(" ")
         while("" in row):
             row.remove("")
-        word = {"id":int(row[0]),"head":int(row[6])}
+        word = {"id":int(row[0]),"head":int(row[6]),"form":row[1]}
         words.append(word)
     return words
