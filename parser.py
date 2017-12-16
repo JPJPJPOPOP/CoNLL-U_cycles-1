@@ -3,9 +3,10 @@
 
 
 def parse(text):
-    lines = str(text).splitlines()
-    while("" in lines):
-        lines.remove("")
+    lines = []
+    for line in text:
+        if len(line)>0:
+            lines.append(line)
     words = []
     for l in lines:
         row = str(l).split(" ")
