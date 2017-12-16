@@ -13,12 +13,12 @@ class Graph():
 
     # internal
     def _is_cyclic_util(self, start_vertex):
-        current_vertex=start_vertex+0
-        visited=[current_vertex]
-        while len(self.graph[current_vertex])>0 and not(self.graph[current_vertex][0]==start_vertex):
-            current_vertex=self.graph[current_vertex][0]
-            visited.append(current_vertex+0)
-        if len(self.graph[current_vertex])>0:
+        current_vertex = start_vertex + 0
+        visited = [current_vertex]
+        while len(self.graph[current_vertex]) > 0 and not(self.graph[current_vertex][0] == start_vertex):
+            current_vertex = self.graph[current_vertex][0]
+            visited.append(current_vertex + 0)
+        if len(self.graph[current_vertex]) > 0:
             return [visited]
         return []
 
